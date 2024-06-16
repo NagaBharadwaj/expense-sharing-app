@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Sharing App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Groups</h1>
+    <form method="POST" action="{{ url_for('add_group') }}">
+        <input type="text" name="group_name" placeholder="New Group Name" required>
+        <button type="submit">Add Group</button>
+    </form>
+    <ul>
+        {% for group in groups %}
+            <li><a href="{{ url_for('group', group_id=group[0]) }}">{{ group[1] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

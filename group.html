@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ group_name }} - Expenses</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ group_name }}</h1>
+    <a href="{{ url_for('add_expense', group_id=group_id) }}">Add Expense</a>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense[2] }}: ${{ expense[3] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Groups</a>
+</body>
+</html>
